@@ -62,11 +62,45 @@ while(index < clients.length) {
 }
 */
 
-clients.forEach((client) => {
+/*clients.forEach((client) => {
   const listItem = document.createElement('li');
 
   const text = document.createTextNode(client.nome);
   listItem.appendChild(text);
+
+  list.appendChild(listItem);
+});
+*/
+//usando forEach e abaixo colocando parágrafo
+
+/*
+clients.forEach((client) => {
+  // li
+  const listItem = document.createElement('li');
+
+  // p
+  const paragraph = document.createElement('p');
+  listItem.appendChild(paragraph);
+  const text = document.createTextNode(client.nome);
+  listItem.appendChild(text);
+
+  list.appendChild(listItem);
+});
+*/
+
+function createParagraph(textContent, parent) {
+  const paragraph = document.createElement('p');
+  const text = document.createTextNode(textContent);
+  paragraph.appendChild(text);
+
+  parent.appendChild(paragraph);
+}
+
+clients.forEach((client) => {
+  const listItem = document.createElement('li');
+
+  createParagraph(client.nome, listItem);
+  createParagraph(client.email, listItem);
 
   list.appendChild(listItem);
 });
